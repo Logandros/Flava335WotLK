@@ -38,6 +38,28 @@
 #    PACKET SPOOF PROTECTION SETTINGS
 #    MISC ANTI-CHEAT SETTINGS
 #    METRIC SETTINGS
+#	 PAYMASTER				(NPC 26075)
+#	 AOE LOOTING AND MAIL EXCESS TO PLAYERS
+#	 NPCBOT CONFIGURATION	(NPC 70000)
+#	 LUA SCRIPTS (Naked Bug Fix, Worldchat, Buff(.buff), Login Announcer, Repair(.repaiall), 
+#	 LUA SCRIPTS CONT.   Reset Instances(.resetid), Bank(.bank), Random Weapon Visuals)
+#	 CUSTOM ADDED NPCS
+#	 TELEPORTER				(NPC 190000)	(change prices in world gossip_menu_option(MenuID = 50000 BoxMoney = ?)
+#	 BEAST MASTER			(NPC 190015)	(no settings in config)
+#	 ENCHANTER				(NPC 190008)	(no settings in config)
+#	 GLOBAL CLASS TRAINER	(NPC 190016)	(no settings in config)
+#	 REFORGER				(NPC 190011)	(no settings in config)
+#	 JUKEBOX DJ				(NPC 190001)	(no settings in config)
+#	 1V1 ARENA MASTER		(NPC 190010)
+#	 GOMOVE ADDON			(found in /custom/GOMove) (also .learn 27651 for targetting circle)
+#	 TRANSMOGRIFICATION		(NPC 190007)	(remembers all items seen)
+#	 SKIP DEATHKNIGHT STARTING AREA
+#	 SOLO LFG
+#	 RACIAL TRAIT SWAP		(NPC 98888)
+#	 CROSS FACTION BATTLEGROUND
+#	 SOLOCRAFT
+#	 AUTOBALANCE
+#	 PLAYTIMEREWARD
 #
 ###################################################################################################
 
@@ -4178,6 +4200,47 @@ Metric.OverallStatusInterval = 1
 ###################################################################################################
 
 ###################################################################################################
+#Paymaster#
+#################################
+#
+#    Paymaster
+#        Enable this for a PTR style Paymaster implementation
+#
+#    Paymaster.Announce.Enable
+#         Description: Announces Module when player logs in.
+#         Default:    0 - (Disabled)
+#                     1 - (Enabled)
+
+Paymaster.Announce.Enable = 1
+
+#    Paymaster.AddGold
+#         Configurable gold added amount from Paymaster
+#         Default:    5000
+
+Paymaster.AddGold = 5000
+
+#
+###################################################################################################
+
+###################################################################################################
+#AOE Looting and Mail Excess to Player#
+#######################################
+#
+#    AOE Looting and Mail Excess
+#        Enable this if you want to enable Area of effect with looting (MOP Feature)
+#        Excess items that is looted in will be mailed to the player
+#
+#    AOE.LOOT.enable
+#         Description: Enables Module
+#         Default:    0 - (Disabled)
+#                     1 - (Enabled)
+
+AOE.LOOT.enable = 1
+
+#
+###################################################################################################
+
+###################################################################################################
 # NPCBOT CONFIGURATION
 #
 #    NpcBot.Enable
@@ -4488,5 +4551,959 @@ NpcBot.OwnershipExpireTime = 0
 
 NpcBot.EnrageOnDismiss = 1
 
+#
+###################################################################################################
+
+###################################################################################################
+#  1v1
+#        Arena.1v1.Enable
+#        Description: Defines is the world chat enabled or disabled, default : Enabled
+#        Usage: 0 = Disabled, 1 = Enabled
+
+Arena.1v1.Enable = 1
+
+#
+#
+#  1v1
+#        Arena.1v1.Enable
+#        Description: Gives value cost; 400000 is 40g
+#        Usage: 0-400000 // 400k is 40g
+
+Arena.1v1.Costs = 400000
+
+#
+#  1v1
+#        Arena.1v1.MinLevel
+#        Description: Change player level requirement to join 1v1 arena
+#        Usage: 1-255
+
+Arena.1v1.MinLevel = 80
+
+#
+#        Arena.1v1.BlockForbiddenTalents
+#        Description: Blocks Forbidden Talents enabled or disabled, default : Enabled
+#        Usage: 0 = Disabled, 1 = Enabled
+
+Arena.1v1.BlockForbiddenTalents = 1
+
+#
+###################################################################################################
+
+###################################################################################################
+#    Transmogrification config
+###################################################################################################
+#
+#    SETTINGS
+#
+#    Logger.custom.transmog
+#        Description: Transmogrification logging setting, see logger settings
+#        Default:    3, Console Server
+#
+#    Transmogrification.EnableTransmogInfo
+#        Description: Enables / Disables the info button for transmogrification
+#        Default:    1
+#
+#    Transmogrification.TransmogNpcText
+#        Description: The npc_text entry of the info menu for transmogrification
+#        Default:    65000
+#
+#    Transmogrification.Allowed
+#        Description: A list of item entries that are allowed for transmogrification (skips quality and CanUseItem check)
+#                     Example: "25 35674 5623"
+#        Default:    ""
+#
+#    Transmogrification.NotAllowed
+#        Description: A list of item entries that are NOT allowed for transmogrification
+#                     Example: "25 35674 5623"
+#        Default:    ""
+
+Logger.custom.transmog = 3, Console Server
+
+Transmogrification.EnableTransmogInfo = 1
+Transmogrification.TransmogNpcText = 65000
+
+Transmogrification.Allowed = ""
+Transmogrification.NotAllowed = ""
+
+#
+#    COPPER COST
+#
+#    Transmogrification.ScaledCostModifier
+#        Description: A multiplier for the default gold cost (change to 0 for no default cost)
+#        Default:    1.0
+#
+#    Transmogrification.CopperCost
+#        Description: Cost added on top of other costs (can be negative)
+#        Default:    0
+#
+#    For custom gold cost set ScaledCostModifier to 0.0 and CopperCost to what ever cost you want
+
+Transmogrification.ScaledCostModifier = 1.0
+Transmogrification.CopperCost = 0
+
+#
+#    REQUIREMENTS
+#
+#    Transmogrification.AllowPoor
+#        Description: Allow poor quality items to be used as source and target items
+#        Default:    0
+#
+#    Transmogrification.AllowCommon
+#        Description: Allow common quality items to be used as source and target items
+#        Default:    0
+#
+#    Transmogrification.AllowUncommon
+#        Description: Allow uncommon quality items to be used as source and target items
+#        Default:    1
+#
+#    Transmogrification.AllowRare
+#        Description: Allow rare quality items to be used as source and target items
+#        Default:    1
+#
+#    Transmogrification.AllowEpic
+#        Description: Allow epic quality items to be used as source and target items
+#        Default:    1
+#
+#    Transmogrification.AllowLegendary
+#        Description: Allow legendary quality items to be used as source and target items
+#        Default:    0
+#
+#    Transmogrification.AllowArtifact
+#        Description: Allow artifact quality items to be used as source and target items
+#        Default:    0
+#
+#    Transmogrification.AllowHeirloom
+#        Description: Allow heirloom quality items to be used as source and target items
+#        Default:    1
+#
+#    Transmogrification.AllowMixedArmorTypes
+#        Description: Allow cloth items to be transmogrified with plate for example
+#        Default:    0
+#
+#    Transmogrification.AllowMixedWeaponTypes
+#        Description: Allow axe to be transmogrified with dagger for example
+#        Default:    0
+#
+#    Transmogrification.AllowMixedInventoryTypes
+#        Description: Allow one hand to be transmogrified with main hand for example
+#        Default:    0
+#
+#    Transmogrification.AllowFishingPoles
+#        Description: Allow fishing poles to be transmogrified
+#        Default:    0
+#
+#    Transmogrification.IgnoreReqRace
+#        Description: Ignore required race for source items
+#        Default:    0
+#
+#    Transmogrification.IgnoreReqClass
+#        Description: Ignore required class for source items
+#        Default:    0
+#
+#    Transmogrification.IgnoreReqSkill
+#        Description: Ignore required skill for source items, for example engineering
+#        Default:    0
+#
+#    Transmogrification.IgnoreReqSpell
+#        Description: Ignore required spell for source items
+#        Default:    0
+#
+#    Transmogrification.IgnoreReqLevel
+#        Description: Ignore required level for source items
+#        Default:    0
+#
+#    Transmogrification.IgnoreReqEvent
+#        Description: Ignore required event for source items
+#        Default:    0
+#
+#    Transmogrification.IgnoreReqStats
+#        Description: Ignore stat count > 0 requirement for source items
+#        Default:    0
+#
+#    Transmogrification.IgnorePlayerMissingProfiency
+#        Description: Ignore requirement for knowing profiency (skill required to equip item)
+#        Default:    0
+#
+#    Transmogrification.IgnoreReqFaction
+#        Description: Ignore alliance only or horde only requirement on items
+#        Default:    0
+#
+#    Transmogrification.IgnoreReqBound
+#        Description: Normally items must be bound for player to get the visual, this setting changes that
+#        Default:    0 - (Require items to be bound)
+#                    1 - (Require items to be bound, but allow items that can never be bound to work)
+#                    2 - (No binding requirements, even items not yet bound will work)
+
+Transmogrification.AllowPoor = 0
+Transmogrification.AllowCommon = 0
+Transmogrification.AllowUncommon = 1
+Transmogrification.AllowRare = 1
+Transmogrification.AllowEpic = 1
+Transmogrification.AllowLegendary = 0
+Transmogrification.AllowArtifact = 0
+Transmogrification.AllowHeirloom = 1
+
+Transmogrification.AllowMixedArmorTypes = 0
+Transmogrification.AllowMixedWeaponTypes = 0
+Transmogrification.AllowMixedInventoryTypes = 0
+Transmogrification.AllowFishingPoles = 0
+
+Transmogrification.IgnoreReqRace = 0
+Transmogrification.IgnoreReqClass = 0
+Transmogrification.IgnoreReqSkill = 0
+Transmogrification.IgnoreReqSpell = 0
+Transmogrification.IgnoreReqLevel = 0
+Transmogrification.IgnoreReqEvent = 0
+Transmogrification.IgnoreReqStats = 0
+Transmogrification.IgnorePlayerMissingProfiency = 0
+Transmogrification.IgnoreReqFaction = 0
+Transmogrification.IgnoreReqBound = 0
+
+#
+#    SET FEATURE
+#
+#    Transmogrification.EnableSets
+#        Description: Enables / Disables the set feature. If you want permanent disable, check Transmogrification.h
+#        Default:    1
+#
+#    Transmogrification.MaxSets
+#        Description: Maximum amount of sets a player can save (hardcap at 25)
+#        Default:    10
+#
+#    Transmogrification.EnableSetInfo
+#        Description: Enables / Disables the info button for set fature
+#        Default:    1
+#
+#    Transmogrification.SetNpcText
+#        Description: The npc_text entry of the info menu for the set feature
+#        Default:    65001
+#
+#    Transmogrification.SetCostModifier
+#        Description: A multiplier for the default gold cost (all costs summed together) (change to 0 for no default cost)
+#        Default:    3.0
+#
+#    Transmogrification.SetCopperCost
+#        Description: Cost added on top of other costs (can be negative)
+#        Default:    0
+
+Transmogrification.EnableSets = 1
+Transmogrification.MaxSets = 10
+
+Transmogrification.EnableSetInfo = 1
+Transmogrification.SetNpcText = 65001
+
+Transmogrification.SetCostModifier = 3.0
+Transmogrification.SetCopperCost = 0
+
+#
+###################################################################################################
+
+###################################################################################################
+#Skip Death Knight Starting Area#
+#################################
+#
+#    Skip Death Knight Starting Area
+#        Enable this if you want to skip the Deathknight starting area
+#        Start with level 58 DK with Runeforging.
+#
+#    Skip.Deathknight.Starter.Announce.enable
+#         Description: Announces Module when player logs in.
+#         Default:    0 - (Disabled)
+#                     1 - (Enabled)
+
+Skip.Deathknight.Starter.Announce.enable = 0
+
+#    Skip.DeathKnight.Starter.Enable
+#         Active Module for all new accounts regardless of account level. Instant Skip on DK Creation.
+#         Default:    0 - (Disabled)
+#                     1 - (Enabled)
+
+Skip.Deathknight.Starter.Enable = 0
+
+#    GM.Skip.Deathknight.Starter.Enable
+#         Active Module for all new accounts of a GM account level ONLY. Instant Skip on DK Creation.
+#         Ensure you have Skip.Deathknight.Starter.Enable set to 0 if using this conf.
+#         Default:    0 - (Disabled)
+#                     1 - (Enabled)
+
+GM.Skip.Deathknight.Starter.Enable = 0
+
+#    Skip.Deathknight.Start.Level
+#         Adjusted Death Knight Start Level if module is used.
+#         Default:    58 - (Default)
+#
+
+Skip.Deathknight.Start.Level = 58
+
+#    Skip.Deathknight.Optional.Enable
+#    Enables optional to skip when talking to lich king on first creation of dk.
+#    Default: 1 - (Active)
+
+Skip.Deathknight.Optional.Enable = 1
+
+#
+###################################################################################################
+
+###################################################################################################
+# SOLO LFG
+#
+#    SoloLFG.Enable
+#        Description: Enable the module.
+#        Default:     1  - (Enabled)
+#                     0  - (Disabled)
+
+SoloLFG.Enable = 1
+
+#    SoloLFG.Announce
+#        Description: Announce the module.
+#        Default:     1  - (Enabled)
+#                     0  - (Disabled)
+
+SoloLFG.Announce = 1
+
+#
+###################################################################################################
+
+###################################################################################################
+#Trinitycore Racial Trait Swap NPC  #
+#####################################
+#
+#    Trinitycore Racial Trait NPC
+#        For a cost, you can swap our you current racial traits for that of another.
+#
+#    Trinitycore.Racial.Trait.Swap.Announce.enable
+#         Description: Announces Module when player logs in.
+#         Default:    0 - (Disabled)
+#                     1 - (Enabled)
+
+Trinitycore.Racial.Trait.Swap.Announce.enable = 1
+
+#
+#    Racial.Traits.Swap.Gold
+#         Description:  Cost in gold for Racial Trait Exchange.
+#         Default:    0 - (Zero Gold Free)
+#                     10 - (Ten Gold Cost)
+
+Racial.Traits.Swap.Gold = 0
+
+#
+###################################################################################################
+
+###################################################################################################
+# Cross Faction Battlegrounds#
+##############################
+#
+#    CrossFactionBattlegrounds.Enable
+#        Description: Enables Cross Faction Battlegrounds modules.
+#                     This module will enable both factions to team up for Battlegrounds play.
+#
+#        Default:     1    - (Enabled)
+#                     0    - (Disable)
+#
+
+CrossFactionBattlegrounds.Enable = 1
+
+#
+#    CrossFactionBattlegrounds.ReplaceLanguages
+#        Description: Disable Languages so everyone regardless of race.
+#                     This will enable both factions to comunicate on the same team for
+#                     unified team communifcations.
+#
+#        Default:     1    - (Enabled)
+#                     0    - (Disable)
+#
+
+CrossFactionBattlegrounds.ReplaceLanguages = 1
+
+#
+#    CrossFactionBattlegrounds.ReplaceRacials
+#        Description: Replaces Racial with default Skills.
+#                     This Ensures there are no racial exploits or advantage for Battlegounds play.
+#
+#        Default:     0    - (Disable)
+#                     1    - (Enabled)
+#
+
+CrossFactionBattlegrounds.ReplaceRacials = 0
+
+#
+###################################################################################################
+
+###################################################################################################
+#  SOLOCRAFT  #
+###############
+# Enable the module? (1: true | 0: false)
+Solocraft.Enable = 1
+# Announce the module when the player logs in?
+Solocraft.Announce = 1
+###################################################################################################
+#  Balancing - Groups (Overloading), Global Spellpower and Stats modifier, Global Class Balancing
+###################################################################################################
+# Enable Debuff of new party members who enter the dungeon to avoid overloading the dungeon?
+# Overloading is when a group member already in the dungeon has the full offset/buff of the
+# dungeon applied then they invite new group members who enter the dungeon and also receive an
+# offset which creates a huge imbalance.
+# The debuff will make the new members weak until all members leave the instance/dungeon
+# instance/dungeon and re-enter which will then split the offset among all the group members.
+# Default:  1 (on)
+#           0 (off)
+SoloCraft.Debuff.Enable = 1
+# Spellpower Bonus Multiplier
+# Spellcasters spellpower bonus multiplier to offset no spellpower received from stats
+# Formula: (player->level * multiplier) * ((classBalance / 100) * difficulty)
+# Example Level 24 Mage with default modifier and  a dungeon difficulty of 5 will receive a base
+# Spellpower increase of 300.
+# Default:  2.5
+#           0.0 (Disable)
+SoloCraft.Spellpower.Mult = 2.5
+# Stats Percentage Bonus Multiplier
+# Forumla: player->Stats * (((classBalance / 100) * difficulty) * multiplier)
+# Default:  100.0
+#           0.0 (Disable)
+SoloCraft.Stats.Mult = 100.0
+#
+# Class Balancing Modifier
+# This settings will only allow the percentage specified of the difficulty for the specified class
+# Example Level 24 Mage with default modifier (2.5), a dungeon difficulty of 5, and a 80 percent class
+# balance modifier will receive a base Spellpower increase of 240.
+# Note: 0 will completely disable the class from receiving difficulty modifiers from any dungeon
+#Default: 100 (Full Dungeon Difficulty Modifer will be Applied)
+#         0 (Disable) - 100
+SoloCraft.DEATH_KNIGHT = 100
+SoloCraft.DRUID = 100
+SoloCraft.HUNTER = 100
+SoloCraft.MAGE = 100
+SoloCraft.PALADIN = 100
+SoloCraft.PRIEST = 100
+SoloCraft.ROGUE = 100
+SoloCraft.SHAMAN = 100
+SoloCraft.WARLOCK = 100
+SoloCraft.WARRIOR = 100
+#
+################################################################################################
+#Catch all Bucket - Difficulty Offset Defaults
+################################################################################################
+# Difficulty Multipliers
+# Defaults: 5, 10, 25, 40
+Solocraft.Dungeon = 5.0
+Solocraft.Heroic = 10.0
+Solocraft.Raid25 = 25.0
+Solocraft.Raid40 = 40.0
+################################################################################################
+#Classic Instances - Difficulty
+################################################################################################
+Solocraft.ShadowfangKeep = 5.0
+Solocraft.Stockades = 5.0
+Solocraft.Deadmines = 5.0
+Solocraft.WailingCaverns = 5.0
+Solocraft.RazorfenKraulInstance = 5.0
+Solocraft.Blackfathom = 5.0
+Solocraft.Uldaman = 5.0
+Solocraft.GnomeragonInstance = 5.0
+Solocraft.SunkenTemple = 5.0
+Solocraft.RazorfenDowns = 5.0
+# Scarlet Monastery
+Solocraft.MonasteryInstances = 5.0
+# Zul'Farrak
+Solocraft.TanarisInstance = 5.0
+Solocraft.BlackRockSpire = 10.0
+Solocraft.BlackrockDepths = 5.0
+Solocraft.OnyxiaLairInstance = 40.0
+#Scholomance
+Solocraft.SchoolofNecromancy = 5.0
+Solocraft.Zul'gurub = 20.0
+Solocraft.Stratholme = 5.0
+Solocraft.Mauradon = 5.0
+# Ragefire Chasm
+Solocraft.OrgrimmarInstance = 5.0
+Solocraft.MoltenCore = 40.0
+Solocraft.DireMaul = 5.0
+Solocraft.BlackwingLair = 40.0
+# Ruins of Ahn'Qiraj
+Solocraft.AhnQiraj = 20.0
+Solocraft.AhnQirajTemple = 40.0
+################################################################################################
+#BC Instances - Difficulty
+################################################################################################
+# The Black Morass
+Solocraft.CavernsOfTime = 5.0
+Solocraft.CavernsOfTimeH = 5.0
+Solocraft.Karazahn = 10.0
+# The Battle for Mount Hyjal - Hyjal Summit
+Solocraft.HyjalPast = 25.0
+# The Shattered Halls
+Solocraft.HellfireMilitary = 5.0
+Solocraft.HellfireMilitaryH = 5.0
+# The Blood Furnace
+Solocraft.HellfireDemon = 5.0
+Solocraft.HellfireDemonH = 5.0
+Solocraft.HellfireRampart = 5.0
+Solocraft.HellfireRampartH = 5.0
+# Magtheridon's Lair
+Solocraft.HellfireRaid = 25.0
+# The Steamvault
+Solocraft.CoilfangPumping = 5.0
+Solocraft.CoilfangPumpingH = 5.0
+# The Underbog
+Solocraft.CoilfangMarsh = 5.0
+Solocraft.CoilfangMarshH = 5.0
+# The Slavepens
+Solocraft.CoilfangDraenei = 5.0
+Solocraft.CoilfangDraeneiH = 5.0
+# Serpentshrine Cavern
+Solocraft.CoilfangRaid = 25.0
+# The Eye
+Solocraft.TempestKeepRaid = 25.0
+# The Arcatraz
+Solocraft.TempestKeepArcane = 5.0
+Solocraft.TempestKeepArcaneH = 5.0
+# The Botanica
+Solocraft.TempestKeepAtrium = 5.0
+Solocraft.TempestKeepAtriumH = 5.0
+# The Mechanar
+Solocraft.TempestKeepFactory = 5.0
+Solocraft.TempestKeepFactoryH = 5.0
+# Shadow Labyrinth
+Solocraft.AuchindounShadow = 5.0
+Solocraft.AuchindounShadowH = 5.0
+# Sethekk Halls
+Solocraft.AuchindounDemon = 5.0
+Solocraft.AuchindounDemonH = 5.0
+# Mana-Tombs
+Solocraft.AuchindounEthereal = 5.0
+Solocraft.AuchindounEtherealH = 5.0
+# Auchenai Crypts
+Solocraft.AuchindounDraenei = 5.0
+Solocraft.AuchindounDraeneiH = 5.0
+# Old Hillsbrad Foothills
+Solocraft.HillsbradPast = 5.0
+Solocraft.HillsbradPastH = 5.0
+Solocraft.BlackTemple = 25.0
+Solocraft.GruulsLair = 25.0
+Solocraft.ZulAman = 5.0
+Solocraft.ZulAmanH = 5.0
+Solocraft.SunwellPlateau = 25.0
+# Magister's Terrace
+Solocraft.Sunwell5ManFix = 5.0
+Solocraft.Sunwell5ManFixH = 5.0
+################################################################################################
+#WOTLK Instances - Difficulty
+################################################################################################
+# Naxxramas
+Solocraft.StratholmeRaid = 10.0
+Solocraft.StratholmeRaidH = 25.0
+# Utgarde Keep
+Solocraft.Valgarde70 = 5.0
+Solocraft.Valgarde70H = 5.0
+Solocraft.UtgardePinnacle = 5.0
+Solocraft.UtgardePinnacleH = 5.0
+# The Nexus
+Solocraft.Nexus70 = 5.0
+Solocraft.Nexus70H = 5.0
+# The Occulus
+Solocraft.Nexus80 = 5.0
+Solocraft.Nexus80H = 5.0
+# The Culling of Stratholme
+Solocraft.StratholmeCOT = 5.0
+Solocraft.StratholmeCOTH = 5.0
+# Halls of Stone
+Solocraft.Ulduar70 = 5.0
+Solocraft.Ulduar70H = 5.0
+# Drak'Tharon Keep
+Solocraft.DrakTheronKeep = 5.0
+Solocraft.DrakTheronKeepH = 5.0
+# Azjol-Nerub
+Solocraft.Azjol_Uppercity = 5.0
+Solocraft.Azjol_UppercityH = 5.0
+# Halls of Lighting
+Solocraft.Ulduar80 = 5.0
+Solocraft.Ulduar80H = 5.0
+# Ulduar
+Solocraft.UlduarRaid = 10.0
+Solocraft.UlduarRaidH = 25.0
+Solocraft.GunDrak = 5.0
+Solocraft.GunDrakH = 5.0
+# Violet Hold
+Solocraft.DalaranPrison = 5.0
+Solocraft.DalaranPrisonH = 5.0
+# The Obsidian Sanctum
+Solocraft.ChamberOfAspectsBlack = 10.0
+Solocraft.ChamberOfAspectsBlackH = 25.0
+# The Eye of Eternity
+Solocraft.NexusRaid = 10.0
+Solocraft.NexusRaidH = 25.0
+# Ahn'kahet: The Old Kingdom
+Solocraft.Azjol_LowerCity = 5.0
+Solocraft.Azjol_LowerCityH = 5.0
+Solocraft.IcecrownCitadel = 10.0
+Solocraft.IcecrownCitadelH = 25.0
+# The Forge of Souls
+Solocraft.IcecrownCitadel5Man = 5.0
+Solocraft.IcecrownCitadel5ManH = 5.0
+# Trial of the Crusader
+Solocraft.ArgentTournamentRaid = 10.0
+Solocraft.ArgentTournamentRaidH = 25.0
+# Grand Trial of the Crusader Heroic
+Solocraft.ArgentTournamentRaidH10 = 10.0
+Solocraft.ArgentTournamentRaidH25 = 25.0
+# Trial of the Champion
+Solocraft.ArgentTournamentDungeon = 5.0
+Solocraft.ArgentTournamentDungeonH = 5.0
+# Pit of Saron
+Solocraft.QuarryOfTears = 5.0
+Solocraft.QuarryOfTearsH = 5.0
+# Halls of Reflection
+Solocraft.HallsOfReflection = 5.0
+Solocraft.HallsOfReflectionH = 5.0
+# The Ruby Sanctum
+Solocraft.ChamberOfAspectsRed = 5.0
+Solocraft.ChamberOfAspectsRedH = 5.0
+################################################################################################
+#Player Level Thresholds
+################################################################################################
+#Max player level difference over the Dungeon's Level for Solocraft to apply the
+# difficulty offset buff.
+# Default: 10
+# Disable: 80
+Solocraft.Max.Level.Diff = 10
+################################################################################################
+#Dungeon Base Levels
+################################################################################################
+#Catch All - Default 80
+Solocraft.Dungeon.Level = 80
+################################################################################################
+#Classic Instances - Base Level
+################################################################################################
+Solocraft.ShadowfangKeep.Level = 15
+Solocraft.Stockades.Level = 22
+Solocraft.Deadmines.Level = 18
+Solocraft.WailingCaverns.Level = 17
+Solocraft.RazorfenKraulInstance.Level = 30
+Solocraft.Blackfathom.Level = 20
+Solocraft.Uldaman.Level = 40
+Solocraft.GnomeragonInstance.Level = 24
+Solocraft.SunkenTemple.Level = 50
+Solocraft.RazorfenDowns.Level = 40
+# Scarlet Monastery
+Solocraft.MonasteryInstances.Level = 35
+# Zul'Farrak
+Solocraft.TanarisInstance.Level = 44
+Solocraft.BlackRockSpire.Level = 55
+Solocraft.BlackrockDepths.Level = 50
+Solocraft.OnyxiaLairInstance.Level = 60
+#Scholomance
+Solocraft.SchoolofNecromancy.Level = 55
+Solocraft.Zul'gurub.Level = 60
+Solocraft.Stratholme.Level = 55
+Solocraft.Mauradon.Level = 48
+# Ragefire Chasm
+Solocraft.OrgrimmarInstance.Level = 15
+Solocraft.MoltenCore.Level = 60
+Solocraft.DireMaul.Level = 48
+Solocraft.BlackwingLair.Level = 40
+# Ruins of Ahn'Qiraj
+Solocraft.AhnQiraj.Level = 60
+Solocraft.AhnQirajTemple.Level = 60
+################################################################################################
+#BC Instances - Base Level
+################################################################################################
+# The Black Morass
+Solocraft.CavernsOfTime.Level = 68
+Solocraft.Karazahn.Level = 68
+# The Battle for Mount Hyjal - Hyjal Summit
+Solocraft.HyjalPast.Level = 70
+# The Shattered Halls
+Solocraft.HellfireMilitary.Level = 68
+# The Blood Furnace
+Solocraft.HellfireDemon.Level = 68
+Solocraft.HellfireRampart.Level = 68
+# Magtheridon's Lair
+Solocraft.HellfireRaid.Level = 68
+# The Steamvault
+Solocraft.CoilfangPumping.Level = 68
+# The Underbog
+Solocraft.CoilfangMarsh.Level = 68
+# The Slavepens
+Solocraft.CoilfangDraenei.Level = 68
+# Serpentshrine Cavern
+Solocraft.CoilfangRaid.Level = 70
+# The Eye
+Solocraft.TempestKeepRaid.Level = 70
+# The Arcatraz
+Solocraft.TempestKeepArcane.Level = 68
+# The Botanica
+Solocraft.TempestKeepAtrium.Level = 68
+# The Mechanar
+Solocraft.TempestKeepFactory.Level = 68
+# Shadow Labyrinth
+Solocraft.AuchindounShadow.Level = 68
+# Sethekk Halls
+Solocraft.AuchindounDemon.Level = 68
+# Mana-Tombs
+Solocraft.AuchindounEthereal.Level = 68
+# Auchenai Crypts
+Solocraft.AuchindounDraenei.Level = 68
+# Old Hillsbrad Foothills
+Solocraft.HillsbradPast.Level = 68
+Solocraft.BlackTemple.Level = 70
+Solocraft.GruulsLair.Level = 70
+Solocraft.ZulAman.Level = 68
+Solocraft.SunwellPlateau.Level = 70
+# Magister's Terrace
+Solocraft.Sunwell5ManFix.Level = 68
+################################################################################################
+#WOTLK Instances - Base Level
+################################################################################################
+# Naxxramas
+Solocraft.StratholmeRaid.Level = 78
+# Utgarde Keep
+Solocraft.Valgarde70.Level = 78
+Solocraft.UtgardePinnacle.Level = 78
+# The Nexus
+Solocraft.Nexus70.Level = 78
+# The Occulus
+Solocraft.Nexus80.Level = 78
+# The Culling of Stratholme
+Solocraft.StratholmeCOT.Level = 78
+# Halls of Stone
+Solocraft.Ulduar70.Level = 78
+# Drak'Tharon Keep
+Solocraft.DrakTheronKeep.Level = 78
+# Azjol-Nerub
+Solocraft.Azjol_Uppercity.Level = 78
+# Halls of Lighting
+Solocraft.Ulduar80.Level = 78
+# Ulduar
+Solocraft.UlduarRaid.Level = 80
+Solocraft.GunDrak.Level = 78
+# Violet Hold
+Solocraft.DalaranPrison.Level = 78
+# The Obsidian Sanctum
+Solocraft.ChamberOfAspectsBlack.Level = 80
+# The Eye of Eternity
+Solocraft.NexusRaid.Level = 80
+# Ahn'kahet: The Old Kingdom
+Solocraft.Azjol_LowerCity.Level = 78
+#Icecrown Citadel
+Solocraft.IcecrownCitadel.Level = 80
+# The Forge of Souls
+Solocraft.IcecrownCitadel5Man.Level = 78
+# Trial of the Champion
+Solocraft.ArgentTournamentDungeon.Level = 80
+# Trial of the Crusader
+Solocraft.ArgentTournamentRaid.Level = 80
+# Pit of Saron
+Solocraft.QuarryOfTears.Level = 78
+# Halls of Reflection
+Solocraft.HallsOfReflection.Level = 78
+# The Ruby Sanctum
+Solocraft.ChamberOfAspectsRed.Level = 80
+#
+###################################################################################################
+
+###################################################################################################
+#
+# AUTOBALANCE ANNOUNCE
+#
+#     AutoBalanceAnnounce.enable
+#        Announce the module on login
+#        Default:     1 (1 = ON, 0 = OFF)
+
+AutoBalanceAnnounce.enable = 1
+
+#
+# AUTOBALANCE OPTIONS
+#
+#     AutoBalance.enable
+#        Enable/Disable the autobalance system
+#        Default:     1 (1 = ON, 0 = OFF)
+
+AutoBalance.enable = 1
+
+#     AutoBalance.InflectionPoint series
+#        Adjust value of Hyperbolic Tangent function where
+#        the curve of scaling must change. A lower value means higher difficulty.
+#        InflectionPoint & InflectionPointHeroic are the fallback values for 5-man dungeons
+#        InflectionPointRaid10M & InflectionPointRaid10MHeroic are the fallback values for 10 man raids
+#        InflectionPointRaid25M & InflectionPointRaid25MHeroic are the fallback values for 25 man raids
+#        InflectionPointRaid30M & InflectionPointRaid30MHeroic are the fallback values for 30 man raids
+#        InflectionPointRaid & InflectionPointRaidHeroic are the fallback values for other raids (40-man, 20-man, 15-man, or custom size)
+#        The inflection points fallback to the most specific number
+#
+#        Example: with 0.5 in InflectionPointRaid, a creature of raid (40) will have half of its life with 20 players in
+#                 with 0.8, the same creature will have half of its life with 12 players in
+#
+#        Default:     0.5
+
+AutoBalance.InflectionPoint = 0.5
+AutoBalance.InflectionPointHeroic = 0.5
+
+AutoBalance.InflectionPointRaid10M = 0.5
+AutoBalance.InflectionPointRaid10MHeroic = 0.5
+
+AutoBalance.InflectionPointRaid25M = 0.5
+AutoBalance.InflectionPointRaid25MHeroic = 0.5
+
+AutoBalance.InflectionPointRaid30M = 0.5
+AutoBalance.InflectionPointRaid30MHeroic = 0.5
+
+AutoBalance.InflectionPointRaid = 0.5
+AutoBalance.InflectionPointRaidHeroic = 0.5
+
+#
+#     AutoBalance.BossInflectionMult
+#        Multiplies the inflection point of bosses, only applies to creatures considered dungeon bosses (from dungeons or raids).
+#        Example: If AutoBalance.BossInflectionMult = 0.4 and AutoBalance.InflectionPoint=0.5, the bosses inflection point will be 0.4*0.9 = 0.36 in a normal dungeon.
+#        Default:     1.0
+
+AutoBalance.BossInflectionMult = 1.0
+
+#
+#     AutoBalance.levelScaling
+#        Check the max level of players in map and scale creature based on it.
+#        This triggers depending on the two options below AutoBalance.levelHigherOffset and AutoBalance.levelLowerOffset
+#        0 = Disabled
+#        1 = Enabled (only in dungeons/raids)
+#        Default:     1
+
+AutoBalance.levelScaling = 0
+
+#
+#     AutoBalance.levelHigherOffset
+#     AutoBalance.levelLowerOffset
+#        Level Offsets between creatures will not be scaled by level.
+#        You can even use it to disable scaling from lower to higher levelScaling
+#        setting levelLowerOffset to 80 (max wotlk level) for example.
+#        default: 3 (higher), 0 (lower)
+
+AutoBalance.levelHigherOffset = 3
+AutoBalance.levelLowerOffset  = 0
+
+#
+#     AutoBalance.levelUseDbValuesWhenExists
+#        When enabled with levelScaling, the creature will use its default database values
+#        instead of level scaling formula when player/party level has correspondance with
+#        creature_template minlevel/maxlevel.
+#
+#        Default:     0 (1 = ON, 0 = OFF)
+
+AutoBalance.levelUseDbValuesWhenExists = 0
+
+#
+#     AutoBalance.LevelEndGameBoost
+#        End game creatures have an exponential (not linear) regression
+#        that is not correctly handled by db values. Keep this enabled
+#        to have stats as near possible to the official ones.
+#
+#        Default:     1 (1 = ON, 0 = OFF)
+
+AutoBalance.LevelEndGameBoost = 1
+
+#
+#     AutoBalance.DungeonScaleDownXP
+#        Decrease individual player's amount of XP gained during a dungeon to match the
+#        amount of XP gained during a full group run. Example: In a 5-man group, you
+#        earn 1/5 of the total XP per kill, but if you solo the dungeon with
+#        AutoBalance.DungeonScaleDownXP = 0, you will earn 5/5 of the total XP.
+#        With the option enabled, you will earn 1/5.
+#        Default:     0 (1 = ON, 0 = OFF)
+
+AutoBalance.DungeonScaleDownXP = 0
+
+#
+#     AutoBalance.DungeonsOnly
+#        Only apply scaling changes to dungeons and raids
+#        Default:     1 (1 = ON, 0 = OFF)
+
+AutoBalance.DungeonsOnly = 1
+
+#
+#     AutoBalance.DebugLevel
+#        0 = None
+#        1 = Errors Only
+#        2 = Errors and Basic Information
+#        3 = All  Info
+#        Default:     2
+
+AutoBalance.DebugLevel = 2
+
+#
+#     AutoBalance.PlayerChangeNotify
+#        Set Auto Notifications to all players in Instance that player count has changed.
+#        Default:     1 (1 = ON, 0 = OFF)
+
+AutoBalance.PlayerChangeNotify = 1
+
+#
+#     AutoBalance.MinHPModifier
+#        Minimum Modifier setting for Health Modification
+#        Default:     0.01
+
+AutoBalance.MinHPModifier = 0.01
+
+#
+#     AutoBalance.MinManaModifier
+#        Minimum Modifier setting for Mana Modification
+#        Default:     0.01
+
+AutoBalance.MinManaModifier = 0.01
+
+#
+#     AutoBalance.MinDamageModifier
+#        Minimum Modifier setting for Damage Modification
+#        Default:     0.01
+
+AutoBalance.MinDamageModifier = 0.01
+
+#
+#     AutoBalance.rate.*
+#        You can tune all rates increasing/decreasing difficulty in a linear way
+#        Note that global rate will increase all other rates. For example:
+#        global = 2.0 , damage = 1.5  -> it means that damage will be 3.0
+#        Default:     1.0
+
+AutoBalance.rate.global = 1.0
+AutoBalance.rate.health = 1.0
+AutoBalance.rate.mana   = 1.0
+AutoBalance.rate.armor  = 1.0
+AutoBalance.rate.damage = 1.0
+
+#
+#     AutoBalance.playerCountDifficultyOffset
+#        Offset of players inside an instance
+#        Default:     0
+
+AutoBalance.playerCountDifficultyOffset = 0
+
+#
+#     AutoBalance.ForcedIDXX
+#        Sets MobIDs for the group they belong to.
+#        All 5 Man Mobs should go in .AutoBalance.5.Name
+#        All 10 Man Mobs should go in .AutoBalance.10.Name etc.
+
+AutoBalance.ForcedID40 = "11583,16441,30057,13020,15589,14435,18192,14889,14888,14887,14890,15302,15818,15742,15741,15740,18338"
+AutoBalance.ForcedID25 = "22997,21966,21965,21964,21806,21215,21845,19728,12397,17711,18256,18192,"
+AutoBalance.ForcedID20 = ""
+AutoBalance.ForcedID10 = "15689,15550,16152,17521,17225,16028,29324,31099"
+AutoBalance.ForcedID5  = "8317,15203,15204,15205,15305,6109,26801,30508,26799,30495,26803,30497,27859,27249"
+AutoBalance.ForcedID2  = ""
+
+#
+#     AutoBalance.DisabledID
+#        Disable scaling on specific creatures
+#
+
+AutoBalance.DisabledID = ""
+###################################################################################################
+
+###################################################################################################
+###PLAYTIMEREWARD###
+####################
+#
+# PlayedTimeReward.Money is copper so 10000 copper is 1 gold. Interval 3600000 = 1hour
+PlayedTimeReward.Interval = 3600000
+PlayedTimeReward.Money    = 10000
+PlayedTimeReward.Honor    = 0
+PlayedTimeReward.Arena    = 0
 #
 ###################################################################################################
