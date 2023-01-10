@@ -44,7 +44,8 @@ void AddSC_CrossfactionBattlegrounds();
 void AddSolocraftScripts();
 // AUTO BALANCE
 void AddSC_AutoBalance();
-// 13
+// Starting Guild
+void AddSC_starting_guild();
 // 14
 // 15
 // 16
@@ -99,7 +100,8 @@ void AddCustomScripts()
 	AddSolocraftScripts();
     // AUTO BALANCE
 	AddSC_AutoBalance();
-	// 13
+	// Starting Guild
+	AddSC_starting_guild();
     // 14
     // 15
     // 16

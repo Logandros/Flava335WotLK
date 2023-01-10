@@ -60,6 +60,7 @@
 #	 SOLOCRAFT
 #	 AUTOBALANCE
 #	 PLAYTIMEREWARD
+#	 STARTING GUILD
 #
 ###################################################################################################
 
@@ -5505,5 +5506,31 @@ PlayedTimeReward.Interval = 3600000
 PlayedTimeReward.Money    = 10000
 PlayedTimeReward.Honor    = 0
 PlayedTimeReward.Arena    = 0
+#
+###################################################################################################
+
+###################################################################################################
+# STARTING GUILD
+#
+# These settings control the Starting Guild functionality
+#
+#    StartingGuild.Enable
+#        Description: Enables or Disables the Starting Guild functionality.
+#        Default:     0 - (Disabled)
+#                     1 - (Enabled)
+
+
+StartingGuild.Enable = 0
+
+
+#
+#    StartingGuild.GuildID
+#        Description: The identifier (ID) of the Guild. It must be an integer number
+#        Default:     1
+
+
+StartingGuild.GuildID = 1
+
+
 #
 ###################################################################################################
