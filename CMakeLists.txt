@@ -91,6 +91,13 @@ add_subdirectory(dep)
 # add core sources
 add_subdirectory(src)
 
+# copy REQ SQL files
+add_custom_target(copy_sql ALL
+        COMMAND ${CMAKE_COMMAND} -E copy_directory
+        ${PROJECT_SOURCE_DIR}/sql
+        ${CMAKE_BINARY_DIR}/bin/$(ConfigurationName)/sql
+        COMMENT "Copying necessary sql files into portable directory")
+
 include(CTest)
 if(BUILD_TESTING)
   list(APPEND CMAKE_MODULE_PATH

@@ -1,3 +1,0 @@
-ALTER TABLE `spell_learn_spell` 
-  MODIFY `entry` int(10) UNSIGNED NOT NULL DEFAULT 0 FIRST,
-  MODIFY `SpellID` int(10) UNSIGNED NOT NULL DEFAULT 0 AFTER `entry`;

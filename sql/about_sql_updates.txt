@@ -1,0 +1,3 @@
+only updates after 01.10.2023 will be included, this will allow for 'Updates.EnableDatabases = 7' with portable installations as the sql files will be included wihtin the build dirs
+
+-Flava
