@@ -378,20 +378,20 @@ public:
             { "id",         HandleNpcBotDeleteByIdCommand,          rbac::RBAC_PERM_COMMAND_NPCBOT_DELETE,             Console::Yes },
             { "free",       HandleNpcBotDeleteFreeCommand,          rbac::RBAC_PERM_COMMAND_NPCBOT_DELETE,             Console::Yes },
         };
-		
-		        static ChatCommandTable npcbotSendToPointCommandTable =
+
+        static ChatCommandTable npcbotSendToPointCommandTable =
         {
             { "",           HandleNpcBotSendToPointCommand,         rbac::RBAC_PERM_COMMAND_NPCBOT_SEND,               Console::No  },
             { "set",        HandleNpcBotSendToPointSetCommand,      rbac::RBAC_PERM_COMMAND_NPCBOT_SEND,               Console::No  },
         };
 
-		static ChatCommandTable npcbotSendToCommandTable =
+        static ChatCommandTable npcbotSendToCommandTable =
         {
             { "",           HandleNpcBotSendToCommand,              rbac::RBAC_PERM_COMMAND_NPCBOT_SEND,               Console::No  },
             { "last",       HandleNpcBotSendToLastCommand,          rbac::RBAC_PERM_COMMAND_NPCBOT_SEND,               Console::No  },
-			{ "point",      npcbotSendToPointCommandTable                                                                           },
+            { "point",      npcbotSendToPointCommandTable                                                                           },
         };
-		
+
         static ChatCommandTable npcbotCommandTable =
         {
             //{ "debug",      npcbotDebugCommandTable                                                                                 },
@@ -1156,8 +1156,8 @@ public:
 
         return return_success(handler, { count });
     }
-	
-	static bool HandleNpcBotSendToPointSetCommand(ChatHandler* handler, Optional<uint32> point_id, Optional<std::vector<std::string_view>> names)
+
+    static bool HandleNpcBotSendToPointSetCommand(ChatHandler* handler, Optional<uint32> point_id, Optional<std::vector<std::string_view>> names)
     {
         static auto return_syntax = [](ChatHandler* chandler) -> bool {
             chandler->SendSysMessage("Syntax: .npcbot sendto point set #number #names...");
@@ -1270,7 +1270,7 @@ public:
         return return_success(handler, { count });
     }
 
-	static bool HandleNpcBotRecallCommand(ChatHandler* handler)
+    static bool HandleNpcBotRecallCommand(ChatHandler* handler)
     {
         Player* owner = handler->GetSession()->GetPlayer();
 

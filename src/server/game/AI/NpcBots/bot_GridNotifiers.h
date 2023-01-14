@@ -550,7 +550,7 @@ class UndeadCCUnitCheck
                 return false;
             if (u->IsImmunedToSpell(sSpellMgr->GetSpellInfo(m_spellId)->TryGetSpellInfoOverride(me), me))
                 return false;
-            if (m_ai->IsPointedNoDPSTarget(u) && bot_ai::IsDamagingSpell(sSpellMgr->GetSpellInfo(m_spellId)))
+            if (m_ai->IsPointedNoDPSTarget(u) && bot_ai::IsDamagingSpell(sSpellMgr->GetSpellInfo(m_spellId)->TryGetSpellInfoOverride(me)))
                 return false;
 
             return true;

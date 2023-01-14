@@ -106,10 +106,10 @@ class bot_ai : public CreatureAI
         bool CanRespawn() { return IAmFree(); }
         void BotMovement(BotMovementType type, Position const* pos, Unit* target = nullptr, bool generatePath = true) const;
         bool CanBotMoveVehicle() const;
-		void MoveToSendPosition(uint32 point_id);
-		void MoveToSendPosition(Position const& mpos);
+        void MoveToSendPosition(uint32 point_id);
+        void MoveToSendPosition(Position const& mpos);
         void MoveToLastSendPosition() { MoveToSendPosition(sendlastpos); }
-		void MarkSendPosition(uint32 point_id);
+        void MarkSendPosition(uint32 point_id);
         void SetBotCommandState(uint32 st, bool force = false, Position* newpos = nullptr);
         void RemoveBotCommandState(uint32 st);
         bool HasBotCommandState(uint32 st) const { return (_botCommandState & st); }
@@ -597,7 +597,7 @@ class bot_ai : public CreatureAI
         PlayerClassLevelInfo* _classinfo;
         SpellInfo const* m_botSpellInfo;
         Position movepos, attackpos, sendlastpos;
-		Position sendpos[MAX_SEND_POINTS];
+        Position sendpos[MAX_SEND_POINTS];
 
         uint32 _botCommandState;
         uint8 _botAwaitState;
@@ -679,7 +679,7 @@ class bot_ai : public CreatureAI
                     uint64 targetGuid;
                     uint32 baseSpell;
                 } spellCastParams;
-				
+
             } params;
 
             explicit BotOrder(BotOrderTypes order_type) : _type(order_type)

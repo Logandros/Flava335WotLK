@@ -148,7 +148,7 @@ enum BotSpells : uint32
     SPELL_SHOOT_BOW                     = 41188,
   //unmodify
     SPELL_TORNADO_LIGHTNING_VISUAL      = 45869, //periodic, 1 sec
-		
+
     //SPELL_SUMMON_FELBLAZE_PREVISUAL     = 46350,//green splash impact head/torso
 
 //OTHER

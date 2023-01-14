@@ -47,8 +47,8 @@ void BotDataMgr::LoadNpcBots(bool spawn)
     uint32 botoldMSTime = getMSTime();
 
     TC_LOG_INFO("server.loading", "Starting NpcBot system...");
-	
-	GenerateBotCustomSpells();
+
+    GenerateBotCustomSpells();
 
     Field* field;
     uint8 index;
