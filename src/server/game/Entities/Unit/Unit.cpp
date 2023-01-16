@@ -12705,7 +12705,11 @@ float Unit::GetCombatRatingReduction(CombatRating cr) const
 {
     if (Player const* player = ToPlayer())
         return player->GetRatingBonusValue(cr);
-    // Player's pet get resilience from owner
+    //npcbot: get bot resilience
+    else if (GetTypeId() == TYPEID_UNIT && ToCreature()->IsNPCBotOrPet())
+        return BotMgr::GetBotResilience(ToCreature());
+    //end npcbot
+	// Player's pet get resilience from owner
     else if (IsPet() && GetOwner())
         if (Player* owner = GetOwner()->ToPlayer())
             return owner->GetRatingBonusValue(cr);

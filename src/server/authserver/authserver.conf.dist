@@ -154,7 +154,7 @@ BanExpiryCheckInterval = 60
 #        Example:     "../TrinityCore"
 #        Default:     ""
 
-SourceDirectory  = ""
+SourceDirectory  = "./"
 
 #
 #    MySQLExecutable

@@ -931,6 +931,27 @@ void GenerateBotCustomSpells()
     sinfo->_effects[1].Effect = SPELL_EFFECT_NONE;
     //24) END STEAL MAGIC
 
+    //24.1) STEAL MAGIC VISUAL
+    spellId = SPELL_STEAL_MAGIC_VISUAL; //11084
+    botSpellInfoOverrides.insert({ spellId, *sSpellMgr->GetSpellInfo(spellId) });
+    sinfo = &botSpellInfoOverrides.at(spellId);
+
+    sinfo->SpellLevel = 1;
+    sinfo->BaseLevel = 1;
+    sinfo->RangeEntry = sSpellRangeStore.LookupEntry(6); //100 yds
+    sinfo->RecoveryTime = 0;
+    sinfo->ExplicitTargetMask = TARGET_FLAG_UNIT;
+    sinfo->AttributesEx |= SPELL_ATTR1_CANT_BE_REDIRECTED | SPELL_ATTR1_CANT_BE_REFLECTED;
+    sinfo->AttributesEx3 |= SPELL_ATTR3_IGNORE_HIT_RESULT;
+
+    sinfo->_effects[0].Effect = SPELL_EFFECT_DUMMY;
+    sinfo->_effects[0].TargetA = SpellImplicitTargetInfo(TARGET_UNIT_TARGET_ANY);
+    sinfo->_effects[0].BasePoints = 1;
+    sinfo->_effects[0].DieSides = 0;
+    sinfo->_effects[0].RealPointsPerLevel = 0.f;
+    sinfo->_effects[0].BonusMultiplier = 0.f;
+    //24.1) END STEAL MAGIC VISUAL
+
     //25) FEEDBACK
     spellId = SPELL_FEEDBACK; //32897
     botSpellInfoOverrides.insert({ spellId, *sSpellMgr->GetSpellInfo(spellId) });
@@ -1113,9 +1134,9 @@ void GenerateBotCustomSpells()
 
     sinfo->_effects[0].BasePoints = 15;
     sinfo->_effects[0].DieSides = 9;
-    sinfo->_effects[0].BonusMultiplier = 0.5f;
+    sinfo->_effects[0].BonusMultiplier = 0.75f;
     sinfo->_effects[0].DamageMultiplier = 1.f;
-    sinfo->_effects[0].RealPointsPerLevel = 12.f;
+    sinfo->_effects[0].RealPointsPerLevel = 8.f;
     sinfo->_effects[0].ValueMultiplier = 1.f;
     //29) END SHADOW BOLT (MAIN_ATTACK)
 
@@ -1177,7 +1198,7 @@ void GenerateBotCustomSpells()
 
     sinfo->_effects[0].ApplyAuraName = SPELL_AURA_MOD_ATTACKSPEED;
     sinfo->_effects[0].BasePoints = 75;
-    sinfo->_effects[1].Amplitude = 1000;
+    sinfo->_effects[1].Amplitude = 3000;
     sinfo->_effects[1].BasePoints = 1;
     //31) END UNHOLY FRENZY
 
