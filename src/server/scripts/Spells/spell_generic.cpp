@@ -248,7 +248,7 @@ class spell_gen_arena_drink : public AuraScript
     bool Load() override
     {
         //npcbot
-        if (GetCaster() && GetCaster()->GetTypeId() == TYPEID_UNIT && GetCaster()->ToCreature()->IsNPCBot())
+        if (GetCaster() && GetCaster()->IsNPCBot())
             return true;
         //end npcbot
 
@@ -3668,7 +3668,7 @@ class spell_gen_vehicle_scaling : public AuraScript
     bool Load() override
     {
         //npcbot
-        if (GetCaster() && GetCaster()->GetTypeId() == TYPEID_UNIT && GetCaster()->ToCreature()->IsNPCBot())
+        if (GetCaster() && GetCaster()->IsNPCBot())
             return true;
         //end npcbot
         return GetCaster() && GetCaster()->GetTypeId() == TYPEID_PLAYER;
