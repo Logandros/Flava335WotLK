@@ -57,7 +57,7 @@ class bot_ai : public CreatureAI
         //void EnterEvadeMode(EvadeReason/* why*/ = EVADE_REASON_OTHER) override { }
         //void LeavingWorld() override { }
         void OnSpellStart(SpellInfo const* spellInfo) override { OnBotSpellStart(spellInfo); }
-		//bool CanRespawn() override { return IAmFree(); }
+        //bool CanRespawn() override { return IAmFree(); }
 
         virtual void OnBotSummon(Creature* /*summon*/) {}
         virtual void OnBotDespawn(Creature* /*summon*/) {}
@@ -104,7 +104,6 @@ class bot_ai : public CreatureAI
         void CommonTimers(uint32 diff);
         void ResetBotAI(uint8 resetType);
         void KillEvents(bool force);
-        bool CanRespawn() { return IAmFree(); }
         void BotMovement(BotMovementType type, Position const* pos, Unit* target = nullptr, bool generatePath = true) const;
         bool CanBotMoveVehicle() const;
         void MoveToSendPosition(uint32 point_id);
@@ -481,6 +480,10 @@ class bot_ai : public CreatureAI
 
         bool ProcessImmediateNonAttackTarget();
 
+        static bool IsUsableItem(Item const* item);
+        uint32 GetItemSpellCooldown(uint32 spellid) const;
+        void CheckUsableItems(uint32 diff);
+
         Player* master;
         Player* _prevRRobin;
         Unit* opponent;
@@ -614,6 +617,7 @@ class bot_ai : public CreatureAI
         uint32 lastdiff, checkAurasTimer, checkMasterTimer, roleTimer, ordersTimer, regenTimer, _updateTimerMedium, _updateTimerEx1;
         uint32 _wmoAreaUpdateTimer;
         uint32 waitTimer;
+        uint32 itemsAutouseTimer;
         //save timers
         uint32 _saveDisabledSpellsTimer;
 
@@ -621,6 +625,7 @@ class bot_ai : public CreatureAI
 
         uint8 _jumpCount, _evadeCount;
         uint32 _roleMask;
+        uint32 _usableItemSlotsMask;
         ObjectGuid::LowType _ownerGuid;
         ObjectGuid _lastTargetGuid;
         bool doHealth, doMana, shouldUpdateStats;
